@@ -4,8 +4,8 @@ import "../css/App.css";
 import data from "../sample_data.json";
 
 function App() {
-  let questionNum = 0;
-  return <Question text={data[questionNum]} />
+  let questionNum = 1;
+  return <Question text={data[questionNum].question.text} />
 }
 
 function Question(props){
@@ -13,3 +13,4 @@ function Question(props){
 }
 
 export default App;
+             

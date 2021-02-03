@@ -14,9 +14,9 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 - [ x] Render an instance of `<Question />` inside of `<App />`.
 - [ x] Add props to `<Question />` with the text "Question goes here".
 - [ x] In `<App />`, add a variable to set the current question number to 0.
-- [ ] Replace "Question goes here" with the `question.text` field found in data for the first question.
-  - [ ] HINT: Use the question number variable you just wrote.
-- [ ] BONUS: Add styling to your app.
+- [x] Replace "Question goes here" with the `question.text` field found in data for the first question.
+  - [x] HINT: Use the question number variable you just wrote.
+- [x] BONUS: Add styling to your app.
 
 >![Day 1.0 goal](https://i.imgur.com/eTZAXGk.png)
 
