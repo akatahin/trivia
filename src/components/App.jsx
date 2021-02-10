@@ -3,21 +3,19 @@ import { textChangeRangeIsUnchanged } from "typescript";
 import "../css/App.css";
 import data from "../sample_data.json";
 
-const nestedHtml = 
-  `<div>
-    <p> Hello! </p>
-    <p> Goodbye! </p>
-    <p> See ya! </p>
-  </div>`
-
 function App() {
+  const [answered, setAnswered] = useState(false)
   let questionNum = 0;
   return (
     <div>
       <Question text={data[questionNum].question.text} choice={data[questionNum].question.choices} />
-
       <NextQuestion /> 
+      <button onClick = {
+        () => setAnswered(data[questionNum].question.choices[data[questionNum].question.correct_choice_index])
+      }
+      >Correct answer is {answered}</button>
     </div>
+    
   )
 }
 
