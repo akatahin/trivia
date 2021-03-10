@@ -4,42 +4,66 @@ import "../css/App.css";
 import data from "../sample_data.json";
 
 function App() {
-  const [answered, setAnswered] = useState(false)
-  let questionNum = 0;
+  const [answered, setAnswered] = useState(false);
+  const [questionNum, setQuestionNum] = useState(0);
+  function updateQuestionNum() {
+    setAnswered(false);
+    setQuestionNum(questionNum + 1);
+   
+
+  }
+
   return (
     <div>
-      <Question text={data[questionNum].question.text} choice={data[questionNum].question.choices} />
-      <NextQuestion /> 
-      <button onClick = {
-        () => setAnswered(data[questionNum].question.choices[data[questionNum].question.correct_choice_index])
-      }
-      >Correct answer is {answered}</button>
+      <Question
+        text={data[questionNum].question.text}
+        choice={data[questionNum].question.choices}
+      />
+      <NextQuestion updateQuestionNum={() => updateQuestionNum()} />     
+      <button
+        onClick={() =>
+          setAnswered(
+            data[questionNum].question.choices[
+              data[questionNum].question.correct_choice_index 
+            ]
+          )
+        }
+      >
+        Correct Answer
+      </button>
+      <p>Correct answer is: {answered}</p>
     </div>
-    
-  )
+  );
 }
 
-function Question(props){
+function Question(props) {
   return (
-  <div>
-    <div>{props.text}</div>
-    {
-      props.choice.map(ansChoice => {
-        return <Answer ans={ansChoice} /> 
-    })
-    }
-  </div>
-)
+    <div>
+      <div>{props.text}</div>
+      {props.choice.map((ansChoice) => {
+        return <Answer ans={ansChoice} />;
+      })
+      }</div>
+  );
 }
 
-function NextQuestion(){ 
- return <button>Next Question</button> 
- 
+function NextQuestion(props) {
+  return (
+    <button
+      onClick={() => {
+        props.updateQuestionNum();
+      }}
+    >
+      Next Question
+    </button>
+  );
 }
 
-function Answer(props){
-  return <p>{props.ans}</p>
+function Answer(props) {
+  return <p>{props.ans}</p>;
 }
 
 export default App;
-             
+
+//Thank you! Also taking a look and I would just keep in mind that we can only call props for those that we’ve passed down!
+//So for NextQuestion, think about the name of the prop that we’ve passed down
