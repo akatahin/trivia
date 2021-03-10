@@ -60,8 +60,8 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 - [X] Replace the current question number variable that you wrote in Day 1.
 - [X] Create a function that updates the state to the next question number.
 - [X] Make a prop on `<NextQuestion />` to pass the prop down to the button element to call that function when the button is clicked.
-- [ ] Check that every part of your question and answer updates to reflect the current question number.
-- [ ] Reset the state of `isAnswered` when the Next Question button is clicked.
+- [X] Check that every part of your question and answer updates to reflect the current question number.
+- [X] Reset the state of `isAnswered` when the Next Question button is clicked.
 - [ ] BONUS: Add [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to hide `<NextQuestion />` when there are no more next questions.
 
 >![Day 3.0 goal](https://i.imgur.com/fetraPF.png)

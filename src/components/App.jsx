@@ -7,7 +7,10 @@ function App() {
   const [answered, setAnswered] = useState(false);
   const [questionNum, setQuestionNum] = useState(0);
   function updateQuestionNum() {
+    setAnswered(false);
     setQuestionNum(questionNum + 1);
+   
+
   }
 
   return (
@@ -16,12 +19,12 @@ function App() {
         text={data[questionNum].question.text}
         choice={data[questionNum].question.choices}
       />
-      <NextQuestion updateQuestionNum={() => updateQuestionNum} />
+      <NextQuestion updateQuestionNum={() => updateQuestionNum()} />     
       <button
         onClick={() =>
           setAnswered(
             data[questionNum].question.choices[
-              data[questionNum].question.correct_choice_index
+              data[questionNum].question.correct_choice_index 
             ]
           )
         }
@@ -39,8 +42,8 @@ function Question(props) {
       <div>{props.text}</div>
       {props.choice.map((ansChoice) => {
         return <Answer ans={ansChoice} />;
-      })}
-    </div>
+      })
+      }</div>
   );
 }
 
@@ -48,7 +51,7 @@ function NextQuestion(props) {
   return (
     <button
       onClick={() => {
-        props.next;
+        props.updateQuestionNum();
       }}
     >
       Next Question
@@ -61,3 +64,6 @@ function Answer(props) {
 }
 
 export default App;
+
+//Thank you! Also taking a look and I would just keep in mind that we can only call props for those that we’ve passed down!
+//So for NextQuestion, think about the name of the prop that we’ve passed down
